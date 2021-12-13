@@ -20,7 +20,7 @@ Utah Tech University - Spring 2023
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=kamden-rasmussen&layout=compact&theme=radical)](https://github.com/kamden-rasmussen/github-readme-stats)
 
-## Check out my LinkedIn
+## Check out my LinkedIn and Resume
 [LinkedIn](https://www.linkedin.com/in/kamden-rasmussen-67b85721a/)
 
 [Resume](.references/resume.jpg)
