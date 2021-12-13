@@ -1,0 +1,38 @@
+.golden{
+    background-color: #90681b;
+}
+.wrapper{
+    align-items: center;
+    text-align: center;
+    background-color: #000000;
+    font-family: 'Roboto', sans-serif;
+    padding-left: 15vw;
+    padding-top: 3vh;
+    padding-right: 15vw;
+    color : whitesmoke
+}
+input{
+    background-color: #000000;
+    color: whitesmoke;
+}
+h1{
+    color: gold;
+}
+button{
+    background-color: #90681b;
+    color: whitesmoke;
+}
+li{
+    padding: 15px 0rem 15px 1rem;
+    list-style-type: none;
+    transition-duration: 0.3s;
+}
+.normal{
+    padding: 10rem, 0rem, 15px, 0rem;
+    border: grey 5px;
+    border-style: solid;
+}
+.golden{
+    padding: 10rem, 0rem, 15px, 0rem;
+    border: gold solid 5px;
+}
