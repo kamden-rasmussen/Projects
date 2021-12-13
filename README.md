@@ -1,2 +1,2 @@
-![resume](references/resume.pdf)
+![resume](.references/resume.jpg)
 
