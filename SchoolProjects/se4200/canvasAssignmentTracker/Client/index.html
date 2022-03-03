@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Assignment Tracker</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=B612&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            /* html{
+                scrollbar-width: thin;
+            }
+            html::-webkit-scrollbar{
+                width: 2vw;
+            }
+            html::-webkit-scrollbar-thumb{
+                background-color: red;
+            }
+            html::-webkit-scrollbar-track{
+                background-color: gray;
+            } */
+        </style>
+    </head>
+    <body>
+        <header></header>
+        <div id="homehero"></div>
+
+        <main>
+            <div id="app">
+                <h1>Welcome to Assignment Tracker</h1>
+
+                <div id="buttonSection">
+                    <div id="newAssignmentSet" v-if="showNewAssignment">
+                        <div class="backgroundOfModal">
+                            <div class="modal">
+                                <div>
+                                    <h2>New Assignment</h2>
+                                    <br />
+                                    Name:
+                                    <input
+                                        type="text"
+                                        v-model="newAssignmentName"
+                                    /><br />
+                                    Class:
+                                    <input
+                                        type="text"
+                                        v-model="newAssignmentClass"
+                                    /><br />
+                                    Due Date:
+                                    <input
+                                        type="date"
+                                        v-model="newAssignmentDueDate"
+                                    /><br />
+                                    Priority:
+                                    <input
+                                        type="text"
+                                        v-model="newAssignmentPriority"
+                                    /><br />
+                                    Notes:
+                                    <input
+                                        type="text"
+                                        v-model="newAssignmentNotes"
+                                    /><br />
+
+                                    <button
+                                        v-on:click="disableAddAssignmentView"
+                                    >
+                                        Cancel
+                                    </button>
+                                    <button
+                                        id="newAssignmentButton"
+                                        v-if="newAssignmentClass && newAssignmentName"
+                                        v-on:click="addAssignmentToDB"
+                                    >
+                                        Add Assignment
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button
+                            class="new-assignment-button"
+                            class="headerButton"
+                            v-on:click="addAssignment"
+                        >
+                            New Assignment?
+                        </button>
+                    </div>
+
+                    <br />
+
+                    <div id="viewBy">
+                        View By: <br />
+                        <button v-on:click="viewByInputDateTrue">
+                            Input Date
+                        </button>
+                        <button v-on:click="viewByDueDateTrue">Due Date</button>
+                        <button v-on:click="viewByPriorityTrue">
+                            Priority
+                        </button>
+                        <button v-on:click="viewByClassTrue">Class</button>
+                    </div>
+                </div>
+
+                <hr />
+                <div>
+                    <div v-for="assignment in assignments" class="assignments">
+                        <h2>{{ assignment.name }}</h2>
+                        Class: {{ assignment.class }}<br />
+                        <div class="details">
+                            Due Date: {{ assignment.duedate }} <br />
+                            Priority: {{ assignment.priority }}<br />
+                            Notes: {{ assignment.notes }}<br />
+                            <button v-on:click="viewEditAssignment(assignment)">
+                                Edit
+                            </button>
+                            <button
+                                class="completeButton"
+                                v-on:click="completeAssignment(assignment)"
+                            >
+                                Complete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div v-if="showEditAssignment">
+                    <div class="backgroundOfModal">
+                        <div class="modal">
+                            <div>
+                                <h2>Edit</h2>
+                                <br />
+                                Name:
+                                <input
+                                    type="text"
+                                    v-model="editAssignmentName"
+                                /><br />
+                                Class:
+                                <input
+                                    type="text"
+                                    v-model="editAssignmentClass"
+                                /><br />
+                                Due Date:
+                                <input
+                                    type="date"
+                                    v-model="editAssignmentDueDate"
+                                /><br />
+                                Priority:
+                                <input
+                                    type="text"
+                                    v-model="editAssignmentPriority"
+                                /><br />
+                                Notes:
+                                <input
+                                    type="text"
+                                    v-model="editAssignmentNotes"
+                                /><br />
+
+                                <button
+                                    type="button"
+                                    v-on:click="viewEditAssignment(null)"
+                                >
+                                    Cancel
+                                </button>
+                                <button
+                                    type="button"
+                                    v-on:click="editAssignment"
+                                >
+                                    Save changes
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div v-if="showByDueDate">
+                    <div
+                        v-for="assignment in assignmentsByDueDate"
+                        class="assignments"
+                        onmouseover="showDetails"
+                    >
+                        <h2>{{ assignment.name }}</h2>
+                        <div class="details" v-if="showDetails">
+                            Class: {{ assignment.class }},<br />
+                            Due Date: {{ assignment.duedate }}, <br />
+                            Priority: {{ assignment.priority }}<br />
+                            Notes: {{ assignment.notes }}<br />
+                            <button>Edit</button>
+                            <button>Complete</button>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </main>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
